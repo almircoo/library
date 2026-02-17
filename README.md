@@ -1,4 +1,3 @@
-Readme · MD
 # API de Biblioteca - Django REST Framework
 
 ## Instalación
