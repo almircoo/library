@@ -9,5 +9,7 @@ dependencies = [
     "django-filter>=25.2",
     "djangorestframework>=3.16.1",
     "djangorestframework-camel-case>=1.4.2",
+    "gunicorn>=25.1.0",
     "psycopg[binary]>=3.3.2",
+    "whitenoise>=6.11.0",
 ]
