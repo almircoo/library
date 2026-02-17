@@ -13,7 +13,7 @@ schema_view = get_schema_view(
         default_version="v1",
         description="API para gestión de biblioteca - Préstamos, Reservas, Catálogo de Libros",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contacto@biblioteca.com"),
+        contact=openapi.Contact(email="almirco@mail.com"),
         license=openapi.License(name="MIT License"),
     ),
     public=True,
@@ -27,7 +27,7 @@ urlpatterns = [
     path("api/v1/", include("core.urls")),
     # Documentación Swagger/OpenAPI
     path(
-        "swagger/",
+        "",
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
