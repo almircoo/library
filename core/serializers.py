@@ -85,6 +85,12 @@ class LibroListSerializer(serializers.ModelSerializer):
     numero_resenas = serializers.IntegerField(read_only=True)
     categorias = CategoriaSerializer(many=True, read_only=True)
     disponible = serializers.BooleanField(read_only=True)
+    portada = serializers.SerializerMethodField()
+
+    def get_portada(self, obj):
+        if obj.portada:
+            return obj.portada.url
+        return None
 
     class Meta:
         model = Libro
