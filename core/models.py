@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
@@ -9,7 +10,7 @@ class Autor(models.Model):
     biografia = models.TextField(blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
     nacionalidad = models.CharField(max_length=100, blank=True, null=True)
-    foto = models.ImageField(upload_to="autores/", blank=True, null=True)
+    foto = CloudinaryField("autores", blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Autores"
@@ -76,7 +77,7 @@ class Libro(models.Model):
     numero_paginas = models.IntegerField(blank=True, null=True)
     idioma = models.CharField(max_length=50, default="Español")
     descripcion = models.TextField()
-    portada = models.ImageField(upload_to="libros/", blank=True, null=True)
+    portada = CloudinaryField("libros", blank=True, null=True)
     categorias = models.ManyToManyField(Categoria, related_name="libros")
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES, default="novela")
 
@@ -127,7 +128,7 @@ class PerfilUsuario(models.Model):
     telefono = models.CharField(max_length=20, blank=True, null=True)
     direccion = models.TextField(blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
-    foto = models.ImageField(upload_to="usuarios/", blank=True, null=True)
+    foto = CloudinaryField("usuario", blank=True, null=True)
     numero_tarjeta = models.CharField(max_length=20, unique=True, blank=True, null=True)
     activo = models.BooleanField(default=True)
 
